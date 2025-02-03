@@ -1,5 +1,5 @@
 trigger:
-- main
+- none
 
 pool:
   name: self-raspberry0201
@@ -27,10 +27,6 @@ stages:
     - task: AzureWebApp@1
       displayName: 'Deploy to Azure'
       inputs:
-        azureSubscription: 'your-azures-buscirption'
+        azureSubscription: 'myserviceconnection'
         appName: 'your-node-app'
-      
-    #  inputs:
-     #   azureSubscription: 'your-azure-subscription'
-      #  appName: 'your-node-app'
         package: '$(System.DefaultWorkingDirectory)/_YourBuildPipeline/drop/*.zip'
