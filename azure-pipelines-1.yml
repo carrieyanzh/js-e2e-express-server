@@ -1,11 +1,9 @@
 trigger:
-- none
+- main
 
 pool:
   name: self-raspberry0201
-  demands:
-    - agent.name -equals 'self-raspberry0201'  # Replace with your self-hosted agent name
-
+  
 stages:
 - stage: Build
   jobs:
