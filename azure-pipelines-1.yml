@@ -25,6 +25,6 @@ stages:
     - task: AzureWebApp@1
       displayName: 'Deploy to Azure'
       inputs:
-        azureSubscription: 'myserviceconnection'
-        appName: 'your-node-app'
-        package: '$(System.DefaultWorkingDirectory)/_YourBuildPipeline/drop/*.zip'
+        azureSubscription: 'myservice0203'
+        appName: 'js-e2e-express-server'
+        package: '$(System.DefaultWorkingDirectory)/js-e2e-express-server/drop/*.zip'
