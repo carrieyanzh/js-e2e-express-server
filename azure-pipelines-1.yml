@@ -1,0 +1,36 @@
+trigger:
+- main
+
+pool:
+  name: self-raspberry0201
+  demands:
+    - agent.name -equals 'self-raspberry0201'  # Replace with your self-hosted agent name
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildJob
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '16.x'
+        addToPath: true
+    - script: |
+        npm install
+        npm run build
+      displayName: 'Install dependencies and build'
+
+- stage: Deploy
+  jobs:
+  - job: DeployJob
+    steps:
+    - task: AzureWebApp@1
+      displayName: 'Deploy to Azure'
+      inputs:
+        azureSubscription: 'your-azures-buscirption'
+        appName: 'your-node-app'
+      
+    #  inputs:
+     #   azureSubscription: 'your-azure-subscription'
+      #  appName: 'your-node-app'
+        package: '$(System.DefaultWorkingDirectory)/_YourBuildPipeline/drop/*.zip'
