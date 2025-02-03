@@ -26,5 +26,5 @@ stages:
       displayName: 'Deploy to Azure'
       inputs:
         azureSubscription: 'myservice0203'
-        appName: 'my-appserver0203'
+        appName: 'appserver0203'
         package: '$(System.DefaultWorkingDirectory)/js-e2e-express-server/drop/*.zip'
