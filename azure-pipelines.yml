@@ -25,4 +25,4 @@ steps:
 
 - script: 
     npm test
-  displayname: 'npm test'
+  displayName: 'npm test'
